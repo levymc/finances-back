@@ -4,7 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 const app = express()
-const PORT = 5005
+const PORT = 4000
 
 app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT} `)
