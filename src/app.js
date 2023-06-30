@@ -14,19 +14,23 @@ const mongoClient = new MongoClient('mongodb+srv://levymcruz:Mae97330060.@levydb
 let db ;
 
 const run = async () => {
-  try {
-    await mongoClient.connect()
-    console.log('Conexão!!!')
-    app.listen(process.env.PORT, () => {
-        console.log(`Servidor Express rodando na url: http://localhost:${process.env.PORT}`);
-    });
-  } catch (err) {
-    console.error('Erro ao conectar no banco:', err)
-  }
-  db =  mongoClient.db()
+    try {
+      await mongoClient.connect()
+      console.log('Conexão!!!')
+      app.listen(process.env.PORT, () => {
+          console.log(`Servidor Express rodando na url: http://localhost:${process.env.PORT}`);
+      });
+    } catch (err) {
+      console.error('Erro ao conectar no banco:', err)
+    }
+    db =  mongoClient.db('finances')
 };
 
 
+app.get('/input', async (req, res) => {
+    const inputList = await db.collection("input").find().toArray()
+    return res.send(inputList)
+});
 
 
 
