@@ -1,4 +1,7 @@
-const express = require('express')
+import express from 'express';
+import { MongoClient, ObjectId } from 'mongodb';
+import cors from 'cors';
+import dotenv from 'dotenv';
 
 const app = express()
 const PORT = 4000
@@ -15,5 +18,5 @@ app.get('/about', (req, res) => {
   res.send('This is my about route..... ')
 })
 
-// Export the Express API
-module.exports = app
+
+export default app
