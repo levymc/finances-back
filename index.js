@@ -1,19 +1,36 @@
 const express = require('express')
+const express = require('express');
+const { MongoClient, ObjectId } = require('mongodb');
+const cors = require('cors');
+const dotenv = require('dotenv');
+
 
 const app = express()
-const PORT = 4000
 
-app.listen(PORT, () => {
-  console.log(`API listening on PORT ${PORT} `)
-})
+const run = async () => {
+  try {
+    await mongoClient.connect()
+    console.log('Conexão!!!')
+    app.listen(process.env.PORT, () => {
+        console.log(`Servidor Express rodando na url: http://localhost:${process.env.PORT}`);
+    });
+  } catch (err) {
+    console.error('Erro ao conectar no banco:', err)
+  }
+  db =  mongoClient.db('finances')
+};
+
+run()
 
 app.get('/', (req, res) => {
   res.send('Hey this is my API running 🥳')
 })
 
-app.get('/about', (req, res) => {
-  res.send('This is my about route..... ')
-})
+app.get('/input', async (req, res) => {
+  const inputList = await db.collection("input").find().toArray()
+  return res.send(inputList)
+});
 
-// Export the Express API
+
+
 module.exports = app
