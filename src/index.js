@@ -26,6 +26,9 @@ const run = async () => {
     db =  mongoClient.db('finances')
 };
 
+app.get('/', (req, res) => {
+  res.send('Hey this is my API running 🥳')
+})
 
 app.get('/input', async (req, res) => {
     const inputList = await db.collection("input").find().toArray()
@@ -35,3 +38,5 @@ app.get('/input', async (req, res) => {
 
 
 run();
+
+export default app
