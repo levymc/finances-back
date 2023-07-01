@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 
-// const mongoClient = new MongoClient('mongodb+srv://levymcruz:Mae97330060.@levydb.tqcncfd.mongodb.net/')
+const mongoClient = new MongoClient('mongodb+srv://levymcruz:Mae97330060.@levydb.tqcncfd.mongodb.net/')
 let db ;
 
 app.listen(4000, () => {
@@ -29,17 +29,16 @@ const run = async () => {
   db =  mongoClient.db('finances')
 };
 
-// run()
 
 app.get('/', (req, res) => {
   res.send('Hey this is my API running 🥳')
 })
 
-// app.get('/input', async (req, res) => {
-//   const inputList = await db.collection("input").find().toArray()
-//   return res.send(inputList)
-// });
+app.get('/input', async (req, res) => {
+  const inputList = await db.collection("input").find().toArray()
+  return res.send(inputList)
+});
 
 
-
+run()
 module.exports = app
