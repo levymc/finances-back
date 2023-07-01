@@ -27,7 +27,7 @@ const run = async () => {
     } catch (err) {
         console.error('Erro ao conectar no banco:', err)
     }
-    const db = await connectToDatabase();
+    // const db = await connectToDatabase();
 };
 
 run();
