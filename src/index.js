@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 
-const mongoClient = new MongoClient('mongodb+srv://levymcruz:Mae97330060.@levydb.tqcncfd.mongodb.net/')
+const mongoClient = new MongoClient(process.env.NEXT_ATLAS_URI)
 let db ;
 
 const run = async () => {
