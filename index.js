@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 
-const mongoClient = new MongoClient('mongodb+srv://levymcruz:Mae97330060.@levydb.tqcncfd.mongodb.net/')
+// const mongoClient = new MongoClient('mongodb+srv://levymcruz:Mae97330060.@levydb.tqcncfd.mongodb.net/')
 let db ;
 
 const PORT = 4000
