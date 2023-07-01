@@ -1,14 +1,14 @@
 // index.js
 const express = require('express')
-const { MongoClient, ObjectId } = require('mongodb');
-const dotenv = require('dotenv');
+// const { MongoClient, ObjectId } = require('mongodb');
+// const dotenv = require('dotenv');
 
 
-dotenv.config();
+// dotenv.config();
 
 const app = express()
 const PORT = 4000
-const uri = process.env.NEXT_ATLAS_URI;
+// const uri = process.env.NEXT_ATLAS_URI;
 
 const options = {
     useUnifiedTopology: true,
