@@ -13,31 +13,19 @@ app.use(express.json());
 const mongoClient = new MongoClient('mongodb+srv://levymcruz:Mae97330060.@levydb.tqcncfd.mongodb.net/')
 let db ;
 
-app.listen(4000, () => {
-  console.log(`Servidor Express rodando na url: http://localhost:4000`);
-});
+const PORT = 4000
 
-const run = async () => {
-  try {
-    await mongoClient.connect()
-    console.log('Conexão!!!')
-    
-  } catch (err) {
-    console.error('Erro ao conectar no banco:', err)
-  }
-  db =  mongoClient.db('finances')
-};
-
+app.listen(PORT, () => {
+  console.log(`API listening on PORT ${PORT} `)
+})
 
 app.get('/', (req, res) => {
   res.send('Hey this is my API running 🥳')
 })
 
-app.get('/input', async (req, res) => {
-  const inputList = await db.collection("input").find().toArray()
-  return res.send(inputList)
-});
+app.get('/about', (req, res) => {
+  res.send('This is my about route..... ')
+})
 
-
-run()
+// Export the Express API
 module.exports = app
