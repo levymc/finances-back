@@ -1,5 +1,5 @@
 const express = require('express')
-const connectToDatabase = require('./src/api/conn');
+// const connectToDatabase = require('./src/api/conn');
 // const { MongoClient, ObjectId } = require('mongodb');
 // const dotenv = require('dotenv');
 
