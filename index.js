@@ -15,11 +15,11 @@ const options = {
     useNewUrlParser: true,
 }
 
-const mongoClient = new MongoClient(uri , options);
+// const mongoClient = new MongoClient(uri , options);
 
 const run = async () => {
     try {
-        await mongoClient.connect()
+        // await mongoClient.connect()
         console.log('Conexão!!!')
         app.listen(PORT, () => {
             console.log(`API listening on PORT ${PORT} `)
@@ -27,7 +27,7 @@ const run = async () => {
     } catch (err) {
         console.error('Erro ao conectar no banco:', err)
     }
-    db =  mongoClient.db('finances')
+    // db =  mongoClient.db('finances')
 };
 
 run();
