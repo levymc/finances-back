@@ -1,5 +1,5 @@
-// index.js
 const express = require('express')
+const connectToDatabase = require('./src/api/conn');
 // const { MongoClient, ObjectId } = require('mongodb');
 // const dotenv = require('dotenv');
 
@@ -27,7 +27,7 @@ const run = async () => {
     } catch (err) {
         console.error('Erro ao conectar no banco:', err)
     }
-    // db =  mongoClient.db('finances')
+    const db = await connectToDatabase();
 };
 
 run();
