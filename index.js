@@ -1,18 +1,7 @@
-const express = require('express');
-// const { MongoClient, ObjectId } = require('mongodb');
-// const cors = require('cors');
-// const dotenv = require('dotenv');
+// index.js
+const express = require('express')
 
-// dotenv.config();
 const app = express()
-
-app.use(cors());
-app.use(express.json());
-
-
-// const mongoClient = new MongoClient('mongodb+srv://levymcruz:Mae97330060.@levydb.tqcncfd.mongodb.net/')
-let db ;
-
 const PORT = 4000
 
 app.listen(PORT, () => {
