@@ -14,13 +14,15 @@ app.use(express.json());
 const mongoClient = new MongoClient('mongodb+srv://levymcruz:Mae97330060.@levydb.tqcncfd.mongodb.net/')
 let db ;
 
+app.listen(4000, () => {
+  console.log(`Servidor Express rodando na url: http://localhost:4000`);
+});
+
 const run = async () => {
   try {
     await mongoClient.connect()
     console.log('Conexão!!!')
-    app.listen(process.env.PORT, () => {
-        console.log(`Servidor Express rodando na url: http://localhost:${process.env.PORT}`);
-    });
+    
   } catch (err) {
     console.error('Erro ao conectar no banco:', err)
   }
